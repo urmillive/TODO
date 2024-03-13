@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { increment, decrement } from "./redux/counterSlice";
 function App() {
-	const count = useSelector(selectCount);
-	const dispatch = useDispatch();
+	const count = useAppSelector((state) => state.counter.value);
+	const dispatch = useAppDispatch();
 	return (
 		<>
 			<div className='card'>
@@ -14,7 +14,7 @@ function App() {
 				>
 					+
 				</button>
-				<span className=''>{count}</span>
+				<h1>{count}</h1>
 				<button
 					className='btn btn-success'
 					aria-label='Decrement value'
